@@ -10,6 +10,7 @@
     "@scalar/hono-api-reference": "^0.9.13",
     "dotenv": "^17.2.1",
     "drizzle-orm": "^0.44.4",
+    "drizzle-zod": "^0.8.3",
     "hono": "^4.9.1",
     "hono-openapi": "^0.4.8",
     "install": "^0.13.0",

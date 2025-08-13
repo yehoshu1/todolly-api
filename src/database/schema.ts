@@ -15,7 +15,7 @@ export const tasks = sqliteTable("tasks", {
   dueDate: text("due_date"), // Store DATE as ISO string (YYYY-MM-DD)
   dueTime: text("due_time"), // Store TIME as HH:MM:SS
   location: text("location"),
-  status: text("status"),
+  status: int("status", {mode: "boolean"}).notNull().default(false),
   priority: text("priority"),
   createdAt: text("created_at").default(sql`CURRENT_TIMESTAMP`).notNull(),
   updatedAt: text("updated_at").default(sql`CURRENT_TIMESTAMP`).notNull(),
@@ -29,7 +29,7 @@ export const subtasks = sqliteTable("subtasks", {
     .references(() => tasks.taskId, { onDelete: "cascade" }),
   title: text("title").notNull(),
   description: text("description"),
-  status: text("status"),
+  status: int("status", {mode: "boolean"}).notNull().default(false),
   priority: text("priority"),
   createdAt: text("created_at").default(sql`CURRENT_TIMESTAMP`).notNull(),
   updatedAt: text("updated_at").default(sql`CURRENT_TIMESTAMP`).notNull(),
