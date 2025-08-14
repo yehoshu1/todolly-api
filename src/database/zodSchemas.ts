@@ -1,19 +1,19 @@
-import { createInsertSchema, createSelectSchema } from "drizzle-zod"
+import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 import { reminders, subtasks, tasks, userTable } from "./schema";
 
 //user Schemas
-export const userSelectSchema = createSelectSchema(userTable);
-export const userInsertSchema = createInsertSchema(userTable);
+export const selectUserSchema = createSelectSchema(userTable);
+export const insertUserSchema = createInsertSchema(userTable);
 
 //task schemas
-export const taskSelectSchema = createSelectSchema(tasks);
-export const taskInsertSchema = createInsertSchema(tasks);
+export const selectTaskSchema = createSelectSchema(tasks);
+export const insertTaskSchema = createInsertSchema(tasks);
 
 //subtask schemas
-export const subtaskSelectSchema = createSelectSchema(subtasks);
-export const subtaskInsertSchema = createInsertSchema(subtasks);
+export const selectSubtaskSchema = createSelectSchema(subtasks);
+export const insertSubtaskSchema = createInsertSchema(subtasks);
 
 //reminder schemas
-export const reminderSelectSchema = createSelectSchema(reminders);
-export const reminderInsertSchema = createInsertSchema(reminders);
+export const selectReminderSchema = createSelectSchema(reminders);
+export const insertReminderSchema = createInsertSchema(reminders);
 

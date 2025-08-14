@@ -8,6 +8,7 @@ export const userTable = sqliteTable("users", {
     password: text("password").notNull(),
 });
 
+
 export const tasks = sqliteTable("tasks", {
   taskId: int("task_id").primaryKey().unique(),
   title: text("title").notNull(),
