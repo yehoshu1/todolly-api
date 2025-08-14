@@ -2,7 +2,7 @@ import { sql } from "drizzle-orm";
 import { int, sqliteTable, text } from "drizzle-orm/sqlite-core";
 
 export const userTable = sqliteTable("users", {
-    id: int("id").primaryKey().unique(),
+    id: text("id").primaryKey().unique(),
     email: text("email").unique().notNull(),
     name: text("name").notNull(),
     password: text("password").notNull(),
@@ -10,7 +10,7 @@ export const userTable = sqliteTable("users", {
 
 
 export const tasks = sqliteTable("tasks", {
-  taskId: int("task_id").primaryKey().unique(),
+  taskId: text("task_id").primaryKey().unique(),
   title: text("title").notNull(),
   description: text("description"),
   dueDate: text("due_date"), // Store DATE as ISO string (YYYY-MM-DD)
@@ -24,7 +24,7 @@ export const tasks = sqliteTable("tasks", {
 
 
 export const subtasks = sqliteTable("subtasks", {
-  subtaskId: int("subtask_id").primaryKey().unique(),
+  subtaskId: text("subtask_id").primaryKey().unique(),
   taskId: int("task_id")
     .notNull()
     .references(() => tasks.taskId, { onDelete: "cascade" }),
@@ -38,7 +38,7 @@ export const subtasks = sqliteTable("subtasks", {
 
 
 export const reminders = sqliteTable("reminders", {
-  reminderId: int("reminder_id").primaryKey().unique(),
+  reminderId: text("reminder_id").primaryKey().unique(),
   taskId: int("task_id")
     .notNull()
     .references(() => tasks.taskId, { onDelete: "cascade" }),

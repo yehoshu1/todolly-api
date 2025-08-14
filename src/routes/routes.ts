@@ -1,7 +1,8 @@
 import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
-import { index } from "./index.route";
+import { index, homeRoutes } from "./index.route";
 import { Scalar } from "@scalar/hono-api-reference";
 import { url } from "zod";
+import { todoRoutes } from "./todos/index.route";
 
 const router = new OpenAPIHono()
 
@@ -25,19 +26,7 @@ router.doc('/doc', {
 //register scalar route
 router.get('scalar', Scalar({url: "/doc", pageTitle:"Todolly API Documentation"}))
 
-//register notfound
-router.notFound((c) => {
-    return c.json({
-        message: "Route not found"
-    }, 404)
-})
-
-//register onerror
-router.onError((err, c) => {
-    console.log(err);
-    return c.json({
-        message: "Internal server error"
-    }, 500)
-})
+//register tasks routes
+router.route('todos', todoRoutes)
 
 export default router;
