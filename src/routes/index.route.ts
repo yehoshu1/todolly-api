@@ -1,4 +1,5 @@
 import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
+import { taskRoutes } from "./tasks/index.route";
 
 export const homeRoutes = new OpenAPIHono();
 
@@ -24,3 +25,5 @@ homeRoutes.openapi(index, (c) => {
     "message": 'Welcome to the Todolly Task Management Application!'
   })
 })
+
+

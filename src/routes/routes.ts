@@ -2,7 +2,9 @@ import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
 import { index, homeRoutes } from "./index.route";
 import { Scalar } from "@scalar/hono-api-reference";
 import { url } from "zod";
-import { todoRoutes } from "./todos/index.route";
+import { taskRoutes } from "./tasks/index.route";
+import { subtaskRoutes } from "./subtasks/index.route";
+import { reminderRoutes } from "./reminders/index.route";
 
 const router = new OpenAPIHono()
 
@@ -27,6 +29,12 @@ router.doc('/doc', {
 router.get('scalar', Scalar({url: "/doc", pageTitle:"Todolly API Documentation"}))
 
 //register tasks routes
-router.route('todos', todoRoutes)
+router.route('/tasks', taskRoutes)
+
+//register subtasks routes
+router.route('subtasks', subtaskRoutes)
+
+//register reminders routes
+router.route('reminders', reminderRoutes)
 
 export default router;

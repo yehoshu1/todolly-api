@@ -25,7 +25,7 @@ export const tasks = sqliteTable("tasks", {
 
 export const subtasks = sqliteTable("subtasks", {
   subtaskId: text("subtask_id").primaryKey().unique(),
-  taskId: int("task_id")
+  taskId: text("task_id")
     .notNull()
     .references(() => tasks.taskId, { onDelete: "cascade" }),
   title: text("title").notNull(),
@@ -39,7 +39,7 @@ export const subtasks = sqliteTable("subtasks", {
 
 export const reminders = sqliteTable("reminders", {
   reminderId: text("reminder_id").primaryKey().unique(),
-  taskId: int("task_id")
+  taskId: text("task_id")
     .notNull()
     .references(() => tasks.taskId, { onDelete: "cascade" }),
   remindAt: text("remind_at").notNull(), // Store DATETIME as ISO 8601 string

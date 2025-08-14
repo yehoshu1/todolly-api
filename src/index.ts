@@ -1,7 +1,7 @@
 import { createRoute, OpenAPIHono, z } from '@hono/zod-openapi'
 import router from './routes/routes'
 
-const app = new OpenAPIHono()
+const app = new OpenAPIHono({ strict: false })
 
 app.route('/', router)
 
