@@ -11,6 +11,9 @@ export const userTable = sqliteTable("users", {
 
 export const tasks = sqliteTable("tasks", {
   taskId: text("task_id").primaryKey().unique(),
+  userId: text("user_id")
+    .notNull()
+    .references(() => userTable.id, { onDelete: "cascade" }),
   title: text("title").notNull(),
   description: text("description"),
   dueDate: text("due_date"), // Store DATE as ISO string (YYYY-MM-DD)
