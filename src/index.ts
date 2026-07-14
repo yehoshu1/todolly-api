@@ -60,14 +60,6 @@ app.notFound((c) => {
     }, 404);
 });
 
-// Error handler
-app.onError((err, c) => {
-    console.error('Server error:', err);
-    return c.json({
-        message: 'Internal server error',
-    }, 500);
-});
-
 // For Bun runtime
 export default {
     port: process.env.PORT || 3000,

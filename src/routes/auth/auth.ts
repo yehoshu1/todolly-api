@@ -99,6 +99,10 @@ authRoutes.openapi(register, async (c) => {
     try {
         const { email, name, password } = c.req.valid('json');
 
+        if (!password) {
+            throw new HTTPException(400, { message: 'Password is required' });
+        }
+
         // Check if user already exists
         const existingUser = await db
             .select()
@@ -135,12 +139,7 @@ authRoutes.openapi(register, async (c) => {
         // Generate JWT token
         const token = generateToken(userId);
 
-        return c.json({
-            success: true,
-            message: 'User registered successfully',
-            token,
-            user: newUser[0]
-        }, 201);
+        return c.json({ token }, 201);
 
     } catch (error) {
         console.error('Registration error:', error);

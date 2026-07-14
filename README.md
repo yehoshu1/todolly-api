@@ -219,13 +219,34 @@ curl -X POST "http://localhost:3000/subtasks" \
 
 ## 🧪 Testing
 
-The API has been thoroughly tested with:
+The API is covered by **77 integration tests** across 16 test files using Vitest with the `@vitest/coverage-v8` provider. Coverage focuses on:
 
-- User registration and login flows
-- JWT token validation
-- Protected endpoint access
-- Data isolation between users
-- CRUD operations for all entities
+- User registration, login, and profile flows
+- JWT token validation (valid, invalid, missing, malformed)
+- Protected endpoint access and auth middleware
+- Data isolation between users (cross-user access denied)
+- CRUD operations for tasks, subtasks, and reminders
+- Error/edge cases: 401/403/404/400/500 responses
+- Database failure simulation (500 paths via mocked DB)
+
+### Running Tests Locally
+
+The project uses Vitest for tests and the built-in `@vitest/coverage-v8` provider for coverage. Tests bootstrap an isolated SQLite file `test.sqlite` in the repository root.
+
+Install dependencies and run tests:
+
+```bash
+npm ci
+npm run test
+```
+
+Run coverage report:
+
+```bash
+npm run test:coverage
+```
+
+CI: A GitHub Actions workflow runs tests and uploads the coverage report on push and PRs.
 
 ## 📁 Project Structure
 
