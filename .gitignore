@@ -1,2 +1,19 @@
-# deps
+# dependencies
 node_modules/
+
+# bun artifacts
+bun.lockb
+
+# environment
+.env
+.env.local
+.env.*.local
+
+# local development files
+dev.db
+*.log
+
+# editor and OS files
+.vscode/
+.idea/
+.DS_Store
