@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { authRegister, authLogin, request } from '../../test/utils';
+import { authRegister, authLogin, request } from '@test/utils';
 
 const EMAIL = `reminder-${Date.now()}-${Math.floor(Math.random() * 10000)}@example.com`;
 const PASS = 'reminderpass';

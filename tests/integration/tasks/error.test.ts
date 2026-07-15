@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeAll } from 'vitest';
-import { request } from '../../../test/utils';
+import { request } from '@test/utils';
 import { nanoid } from 'nanoid';
 
 const TEST_EMAIL = `taskerr-${nanoid()}@example.com`;

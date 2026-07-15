@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { request } from '../../test/utils';
+import { request } from '@test/utils';
 
 describe('App routes', () => {
   it('should return welcome message on GET /', async () => {

@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { authRegister, authLogin, request } from '../../test/utils';
+import { authRegister, authLogin, request } from '@test/utils';
 
 describe('End-to-end flows', () => {
   test('full user flow', async () => {

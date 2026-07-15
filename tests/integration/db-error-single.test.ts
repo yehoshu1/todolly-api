@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeAll } from 'vitest';
 import db from '../../src/database';
-import { request } from '../../test/utils';
+import { request } from '@test/utils';
 import { nanoid } from 'nanoid';
 
 const TEST_EMAIL = `dbsingle-${nanoid()}@example.com`;

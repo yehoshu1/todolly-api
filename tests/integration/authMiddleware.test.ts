@@ -1,7 +1,7 @@
 import { describe, expect, test, beforeAll } from 'vitest';
 import { Hono } from 'hono';
 import { authMiddleware, getAuthenticatedUser } from '../../src/middleware/auth';
-import { authRegister, authLogin } from '../../test/utils';
+import { authRegister, authLogin } from '@test/utils';
 import { generateToken } from '../../src/database/lib/jwt';
 
 const EMAIL = `mw-${Date.now()}-${Math.floor(Math.random() * 10000)}@example.com`;
